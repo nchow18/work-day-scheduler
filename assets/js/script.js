@@ -1,46 +1,49 @@
 var tasksdescription = {};
+var hours = {};
 
 var loadTasks = function() {
     tasksdescription = JSON.parse(localStorage.getItem("tasksdescription"));
 
-    // if(!tasksdescription) {
-    //     tasksdescription = {
-    //         toDo: ["9AM - Enter Hourly Task Here", 
-    //         "10AM - Enter Hourly Task Here", 
-    //         "11AM - Enter Hourly Task Here", 
-    //         "12PM - Enter Hourly Task Here", 
-    //         "1PM - Enter Hourly Task Here", 
-    //         "2PM - Enter Hourly Task Here", 
-    //         "3PM - Enter Hourly Task Here", 
-    //         "4PM - Enter Hourly Task Here", 
-    //         "5PM - Enter Hourly Task Here"]
-    //     };
-    // }
+    var currentDay = moment().format('L')
+    $("#currentDay").html(currentDay);
 
     if(!tasksdescription) {
         tasksdescription = {
-            toDo: ["", 
-            "", 
-            "", 
-            "", 
-            "", 
-            "", 
-            "", 
-            "", 
-            ""]
+            toDo: [
+                {text:"",
+                date:moment(moment().format("L"), "L").set("hour", 9)}, 
+                {text:"",
+                date:moment(moment().format("L"), "L").set("hour", 10)}, 
+                {text:"",
+                date:moment(moment().format("L"), "L").set("hour", 11)}, 
+                {text:"",
+                date:moment(moment().format("L"), "L").set("hour", 12)}, 
+                {text:"",
+                date:moment(moment().format("L"), "L").set("hour", 13)}, 
+                {text:"",
+                date:moment(moment().format("L"), "L").set("hour", 14)}, 
+                {text:"",
+                date:moment(moment().format("L"), "L").set("hour", 15)}, 
+                {text:"",
+                date:moment(moment().format("L"), "L").set("hour", 16)}, 
+                {text:"",
+                date:moment(moment().format("L"), "L").set("hour", 17)}]
         };
     }
 
-    var printTask0 = tasksdescription.toDo[0];
-    var printTask1 = tasksdescription.toDo[1];
-    var printTask2 = tasksdescription.toDo[2];
-    var printTask3 = tasksdescription.toDo[3];
-    var printTask4 = tasksdescription.toDo[4];
-    var printTask5 = tasksdescription.toDo[5];
-    var printTask6 = tasksdescription.toDo[6];
-    var printTask7 = tasksdescription.toDo[7];
-    var printTask8 = tasksdescription.toDo[8];
+    var printTask0 = tasksdescription.toDo[0].text;
+    var printTask1 = tasksdescription.toDo[1].text;
+    var printTask2 = tasksdescription.toDo[2].text;
+    var printTask3 = tasksdescription.toDo[3].text;
+    var printTask4 = tasksdescription.toDo[4].text;
+    var printTask5 = tasksdescription.toDo[5].text;
+    var printTask6 = tasksdescription.toDo[6].text;
+    var printTask7 = tasksdescription.toDo[7].text;
+    var printTask8 = tasksdescription.toDo[8].text;
 
+    // for (var i = 0; 0 < tasksdescription.toDo.length; i++) {
+    //     document.getElementById([i] + "-toDo").value = tasksdescription.toDo[i].text;
+    // }
     
     // prints to 9am
     document.getElementById("0-toDo").value = printTask0;
@@ -73,42 +76,80 @@ var saveTasks = function() {
 }
 
 var auditTask = function() {
-    var time = $("#schedule-toDo").find("span").text().trim();
+    var agendaTime = $("#schedule-toDo").find("span").text().trim();
 
-    var hour = moment(currentDay, "L").set("hour", 17);
+    var hour0 = moment(moment().format("L"), "L").set("hour", 9);
+    var hour1 = moment(moment().format("L"), "L").set("hour", 10);
+    var hour2 = moment(moment().format("L"), "L").set("hour", 11);
+    var hour3 = moment(moment().format("L"), "L").set("hour", 12);
+    var hour4 = moment(moment().format("L"), "L").set("hour", 13);
+    var hour5 = moment(moment().format("L"), "L").set("hour", 14);
+    var hour6 = moment(moment().format("L"), "L").set("hour", 15);
+    var hour7 = moment(moment().format("L"), "L").set("hour", 16);
+    var hour8 = moment(moment().format("L"), "L").set("hour", 17);
 
-    console.log(hour);
-    console.log(time);
+    var changeColour = [
+        hour0, 
+        hour1,
+        hour2,
+        hour3,
+        hour4,
+        hour5,
+        hour6,
+        hour7,
+        hour8
+    ]
 
-    var currentDayTime = moment().format('MMM Do YYYY, h:mm:ss a');
-    var currentTime = moment().format('LT')
-    //var currentTime = "3:00";
-    var currentDay = moment().format('L')
-    var test = moment();
+    var one = "#0-toDo";
+    var two = "#1-toDo";
+    var three = "#2-toDo";
+    var four = "#3-toDo";
+    var five = "#4-toDo";
+    var six = "#5-toDo";
+    var seven = "#6-toDo";
+    var eight = "#7-toDo";
+    var nine = "#8-toDo";
 
-    console.log(currentDay);
-    console.log(currentDayTime);
-    console.log(currentTime)
-    console.log(test)
+    var id = [
+        one,
+        two,
+        three,
+        four,
+        five,
+        six,
+        seven,
+        eight,
+        nine
+    ]
+
+    console.log(changeColour.length);
+    console.log(id[2]);
+
+    // var currentDayTime = moment().format('MMM Do YYYY, h:mm:ss a');
+    // var currentTime = moment().format('LT')
+    // //var currentTime = "3:00";
+    var currentDay = moment();
+    // var test = moment();
+
+    // console.log(hour0);
+    // console.log(agendaTime);
+    // console.log(currentDay);
+    // console.log(currentDayTime);
+    // console.log(currentTime)
+    // console.log(test)
     
-
-    document.getElementById("currentDay").innerHTML = hour;
-
     //remove old classes from hour elements
     $("textarea").removeClass("past present future");
 
-    // //apply near/over due date
-    // if (moment().isAfter()) {
-    //     $("textarea").addClass("past");
-    // } else if (Math.abs(moment().diff(hour)) <= 1) {
-    //         $("textarea").addClass("future");
-    // }
+    //past = grey
+    //present = red
+    //future = green
 
-    if (time < "3:00 PM") {$("textarea").addClass("past");} 
-        else if 
-        (time > moment()) {$("textarea").addClass("future")} 
-        else if 
-        (time === moment()) {$("textarea").addClass("present");}
+    for ( var i = 0; 0 < changeColour.length; i++) {
+        if (moment() > changeColour[i]) {
+        $(id[i]).addClass("past");} else if (moment() < changeColour[i]) {
+        $(id[i]).addClass("future");} else if (Math.abs(moment().diff(changeColour[i])) <= 1) {$(id[i]).addClass("present");} else {break;}
+        }
 }
 
 
@@ -146,8 +187,8 @@ $("#btn-toDo-0").click(function() {
     console.log(index);
 
     if (description) {
-        tasksdescription[status][index] = description;
-        document.getElementById(index + "-toDo").value = tasksdescription.toDo[index];
+        tasksdescription[status][index].text = description;
+        //$("#" + index + "-toDo").html(tasksdescription.toDo[index].text);
     }
     
     saveTasks();
@@ -170,8 +211,8 @@ $("#btn-toDo-1").click(function() {
     console.log(index);
 
     if (description) {
-        tasksdescription[status][index] = description;
-        document.getElementById(index + "-toDo").value = tasksdescription.toDo[index];
+        tasksdescription[status][index].text = description;
+        $(index + "-toDo").html(tasksdescription.toDo[index]);
     }
     
     saveTasks();
@@ -194,8 +235,8 @@ $("#btn-toDo-2").click(function() {
     console.log(index);
 
     if (description) {
-        tasksdescription[status][index] = description;
-        document.getElementById(index + "-toDo").value = tasksdescription.toDo[index];
+        tasksdescription[status][index].text = description;
+        $(index + "-toDo").html(tasksdescription.toDo[index]);
     }
     
     saveTasks();
@@ -218,8 +259,8 @@ $("#btn-toDo-3").click(function() {
     console.log(index);
 
     if (description) {
-        tasksdescription[status][index] = description;
-        document.getElementById(index + "-toDo").value = tasksdescription.toDo[index];
+        tasksdescription[status][index].text = description;
+        $(index + "-toDo").html(tasksdescription.toDo[index]);
     }
     
     saveTasks();
@@ -242,8 +283,8 @@ $("#btn-toDo-4").click(function() {
     console.log(index);
 
     if (description) {
-        tasksdescription[status][index] = description;
-        document.getElementById(index + "-toDo").value = tasksdescription.toDo[index];
+        tasksdescription[status][index].text = description;
+        $(index + "-toDo").html(tasksdescription.toDo[index]);
     }
     
     saveTasks();
@@ -266,8 +307,8 @@ $("#btn-toDo-5").click(function() {
     console.log(index);
 
     if (description) {
-        tasksdescription[status][index] = description;
-        document.getElementById(index + "-toDo").value = tasksdescription.toDo[index];
+        tasksdescription[status][index].text = description;
+        $(index + "-toDo").html(tasksdescription.toDo[index]);
     }
     
     saveTasks();
@@ -290,8 +331,8 @@ $("#btn-toDo-6").click(function() {
     console.log(index);
 
     if (description) {
-        tasksdescription[status][index] = description;
-        document.getElementById(index + "-toDo").value = tasksdescription.toDo[index];
+        tasksdescription[status][index].text = description;
+        $(index + "-toDo").html(tasksdescription.toDo[index]);
     }
     
     saveTasks();
@@ -314,8 +355,8 @@ $("#btn-toDo-7").click(function() {
     console.log(index);
 
     if (description) {
-        tasksdescription[status][index] = description;
-        document.getElementById(index + "-toDo").value = tasksdescription.toDo[index];
+        tasksdescription[status][index].text = description;
+        $(index + "-toDo").html(tasksdescription.toDo[index]);
     }
     
     saveTasks();
@@ -323,12 +364,12 @@ $("#btn-toDo-7").click(function() {
 
 //save button-8 clicked
 $("#btn-toDo-8").click(function() {
-    var description = $("#5-toDo").val();
+    var description = $("#8-toDo").val();
 
     var status = $("#8-toDo")
         .closest("#8-toDo")
         .attr("id")
-        .replace("5-", "")
+        .replace("8-", "")
     var index = $(this)
         .attr("id")
         .replace("btn-toDo-", "")
@@ -338,8 +379,8 @@ $("#btn-toDo-8").click(function() {
     console.log(index);
 
     if (description) {
-        tasksdescription[status][index] = description;
-        document.getElementById(index + "-toDo").value = tasksdescription.toDo[index];
+        tasksdescription[status][index].text = description;
+        $(index + "-toDo").html(tasksdescription.toDo[index]);
     }
     
     saveTasks();
