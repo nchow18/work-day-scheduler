@@ -72,6 +72,46 @@ var saveTasks = function() {
     localStorage.setItem("tasksdescription", JSON.stringify(tasksdescription));
 }
 
+var auditTask = function() {
+    var time = $("#schedule-toDo").find("span").text().trim();
+
+    var hour = moment(currentDay, "L").set("hour", 17);
+
+    console.log(hour);
+    console.log(time);
+
+    var currentDayTime = moment().format('MMM Do YYYY, h:mm:ss a');
+    var currentTime = moment().format('LT')
+    //var currentTime = "3:00";
+    var currentDay = moment().format('L')
+    var test = moment();
+
+    console.log(currentDay);
+    console.log(currentDayTime);
+    console.log(currentTime)
+    console.log(test)
+    
+
+    document.getElementById("currentDay").innerHTML = hour;
+
+    //remove old classes from hour elements
+    $("textarea").removeClass("past present future");
+
+    // //apply near/over due date
+    // if (moment().isAfter()) {
+    //     $("textarea").addClass("past");
+    // } else if (Math.abs(moment().diff(hour)) <= 1) {
+    //         $("textarea").addClass("future");
+    // }
+
+    if (time < "3:00 PM") {$("textarea").addClass("past");} 
+        else if 
+        (time > moment()) {$("textarea").addClass("future")} 
+        else if 
+        (time === moment()) {$("textarea").addClass("present");}
+}
+
+
 // task text clicked
 $(".description").on("click", "textarea", function() {
     //get current text of p element
@@ -305,7 +345,6 @@ $("#btn-toDo-8").click(function() {
     saveTasks();
 })
 
-
-
 //load tasksdescription
 loadTasks();
+auditTask();
