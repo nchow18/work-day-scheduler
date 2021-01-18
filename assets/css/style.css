@@ -57,7 +57,7 @@ textarea {
 
 .row {
   white-space: pre-wrap;
-  height: 80px;
+  height: 3rem;
 }
 
 .hour {
@@ -96,4 +96,37 @@ textarea {
 .saveBtn i:hover {
   font-size: 20px;
   transition: all .3s ease-in-out;
+}
+
+/*---------------------*/
+/*      MEDIA 500      */
+/*---------------------*/
+
+@media screen and (max-width: 500px) {
+
+.line-flex {
+  width: 100%;
+  margin: 1rem;
+}
+
+.hour {
+  width: 20%;
+  padding: .5rem .5rem 3rem .5rem;
+  text-align: left;
+}
+
+.description {
+  width: 60%;
+}
+
+.saveBtn {
+  width: 20%;
+}
+
+.display-3 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+
 }
