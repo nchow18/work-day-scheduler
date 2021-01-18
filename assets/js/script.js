@@ -76,17 +76,26 @@ var saveTasks = function() {
 }
 
 var auditTask = function() {
-    var agendaTime = $("#schedule-toDo").find("span").text().trim();
 
-    var hour0 = moment(moment().format("L"), "L").set("hour", 9);
-    var hour1 = moment(moment().format("L"), "L").set("hour", 10);
-    var hour2 = moment(moment().format("L"), "L").set("hour", 11);
-    var hour3 = moment(moment().format("L"), "L").set("hour", 12);
-    var hour4 = moment(moment().format("L"), "L").set("hour", 13);
-    var hour5 = moment(moment().format("L"), "L").set("hour", 14);
-    var hour6 = moment(moment().format("L"), "L").set("hour", 15);
-    var hour7 = moment(moment().format("L"), "L").set("hour", 16);
-    var hour8 = moment(moment().format("L"), "L").set("hour", 17);
+    // var hour0 = moment(moment().format("L"), "L").set("hour", 9);
+    // var hour1 = moment(moment().format("L"), "L").set("hour", 10);
+    // var hour2 = moment(moment().format("L"), "L").set("hour", 11);
+    // var hour3 = moment(moment().format("L"), "L").set("hour", 12);
+    // var hour4 = moment(moment().format("L"), "L").set("hour", 13);
+    // var hour5 = moment(moment().format("L"), "L").set("hour", 14);
+    // var hour6 = moment(moment().format("L"), "L").set("hour", 15);
+    // var hour7 = moment(moment().format("L"), "L").set("hour", 16);
+    // var hour8 = moment(moment().format("L"), "L").set("hour", 17);
+
+    var hour0 = moment('9:00am', 'h:mma');
+    var hour1 = moment('10:00am', 'h:mma');
+    var hour2 = moment('11:00am', 'h:mma');
+    var hour3 = moment('12:00pm', 'h:mma');
+    var hour4 = moment('1:00pm', 'h:mma');
+    var hour5 = moment('2:00pm', 'h:mma');
+    var hour6 = moment('3:00pm', 'h:mma');
+    var hour7 = moment('4:00pm', 'h:mma');
+    var hour8 = moment('5:00pm', 'h:mma');
 
     var changeColour = [
         hour0, 
@@ -122,13 +131,10 @@ var auditTask = function() {
         nine
     ]
 
-    console.log(changeColour.length);
-    console.log(id[2]);
-
     // var currentDayTime = moment().format('MMM Do YYYY, h:mm:ss a');
     // var currentTime = moment().format('LT')
-    // //var currentTime = "3:00";
-    var currentDay = moment();
+    var currentDay = moment('1:00pm', 'h:mma');
+    console.log(currentDay)
     // var test = moment();
 
     // console.log(hour0);
@@ -146,10 +152,19 @@ var auditTask = function() {
     //future = green
 
     for ( var i = 0; 0 < changeColour.length; i++) {
-        if (moment() > changeColour[i]) {
-        $(id[i]).addClass("past");} else if (moment() < changeColour[i]) {
-        $(id[i]).addClass("future");} else if (Math.abs(moment().diff(changeColour[i])) <= 1) {$(id[i]).addClass("present");} else {break;}
-        }
+            if (currentDay > changeColour[i]) {
+            $(id[i]).addClass("past");} 
+        else 
+            if (currentDay < changeColour[i]) {
+            $(id[i]).addClass("future");} 
+        else 
+            if (currentDay.isSame(changeColour[i])) {
+            $(id[i]).addClass("present"); break;}
+    }
+
+//     if (currentDay.isSame(hour4)) {$(id[4]).addClass("present")}
+
+//
 }
 
 
