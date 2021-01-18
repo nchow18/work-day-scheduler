@@ -77,25 +77,25 @@ var saveTasks = function() {
 
 var auditTask = function() {
 
-    // var hour0 = moment(moment().format("L"), "L").set("hour", 9);
-    // var hour1 = moment(moment().format("L"), "L").set("hour", 10);
-    // var hour2 = moment(moment().format("L"), "L").set("hour", 11);
-    // var hour3 = moment(moment().format("L"), "L").set("hour", 12);
-    // var hour4 = moment(moment().format("L"), "L").set("hour", 13);
-    // var hour5 = moment(moment().format("L"), "L").set("hour", 14);
-    // var hour6 = moment(moment().format("L"), "L").set("hour", 15);
-    // var hour7 = moment(moment().format("L"), "L").set("hour", 16);
-    // var hour8 = moment(moment().format("L"), "L").set("hour", 17);
+    var hour0 = moment(moment().format("L"), "L").set("hour", 9);
+    var hour1 = moment(moment().format("L"), "L").set("hour", 10);
+    var hour2 = moment(moment().format("L"), "L").set("hour", 11);
+    var hour3 = moment(moment().format("L"), "L").set("hour", 12);
+    var hour4 = moment(moment().format("L"), "L").set("hour", 13);
+    var hour5 = moment(moment().format("L"), "L").set("hour", 14);
+    var hour6 = moment(moment().format("L"), "L").set("hour", 15);
+    var hour7 = moment(moment().format("L"), "L").set("hour", 16);
+    var hour8 = moment(moment().format("L"), "L").set("hour", 17);
 
-    var hour0 = moment('9:00am', 'h:mma');
-    var hour1 = moment('10:00am', 'h:mma');
-    var hour2 = moment('11:00am', 'h:mma');
-    var hour3 = moment('12:00pm', 'h:mma');
-    var hour4 = moment('1:00pm', 'h:mma');
-    var hour5 = moment('2:00pm', 'h:mma');
-    var hour6 = moment('3:00pm', 'h:mma');
-    var hour7 = moment('4:00pm', 'h:mma');
-    var hour8 = moment('5:00pm', 'h:mma');
+    // var hour0 = moment('9:00am', 'h:mma');
+    // var hour1 = moment('10:00am', 'h:mma');
+    // var hour2 = moment('11:00am', 'h:mma');
+    // var hour3 = moment('12:00pm', 'h:mma');
+    // var hour4 = moment('1:00pm', 'h:mma');
+    // var hour5 = moment('2:00pm', 'h:mma');
+    // var hour6 = moment('3:00pm', 'h:mma');
+    // var hour7 = moment('4:00pm', 'h:mma');
+    // var hour8 = moment('5:00pm', 'h:mma');
 
     var changeColour = [
         hour0, 
@@ -133,7 +133,8 @@ var auditTask = function() {
 
     // var currentDayTime = moment().format('MMM Do YYYY, h:mm:ss a');
     // var currentTime = moment().format('LT')
-    var currentDay = moment('1:00pm', 'h:mma');
+    //var currentDay = moment('1:00pm', 'h:mma');
+    var currentDay = moment(moment().format("L"), "L").set("hour", 13);
     console.log(currentDay)
     // var test = moment();
 
